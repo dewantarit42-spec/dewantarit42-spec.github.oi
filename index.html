@@ -1,37 +1,421 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio Saya</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f0ff;
-      color: #333;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 450px;
-      margin: auto;
-    }
-    h1 { color: #8054bd; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Adinda | My Portfolio</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff7fa;
+  color: #624b57;
+  line-height: 1.7;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 15px #eacbd533;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  color: #d77eaa;
+}
+
+nav a {
+  text-decoration: none;
+  color: #79566a;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #d77eaa;
+}
+
+/* HERO */
+.hero {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(
+    135deg,
+    #ffe3ee,
+    #fff6fa,
+    #f0e5ff
+  );
+}
+
+.hero-label {
+  background: white;
+  color: #d17da7;
+  padding: 9px 22px;
+  border-radius: 30px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 8vw, 70px);
+  color: #c66e9c;
+  margin-bottom: 12px;
+}
+
+.hero h2 {
+  font-size: 22px;
+  color: #8d6880;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  max-width: 500px;
+  color: #796574;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  background: #d986ad;
+  color: white;
+  padding: 13px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #bd6593;
+  transform: translateY(-3px);
+}
+
+/* SECTION */
+section {
+  padding: 80px 9%;
+}
+
+.section-title {
+  text-align: center;
+  color: #c66e9c;
+  font-size: 32px;
+  margin-bottom: 35px;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-top: -25px;
+  margin-bottom: 35px;
+  color: #9b8290;
+}
+
+/* ABOUT */
+.about-card {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px;
+  background: white;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 5px 25px #e9cbd555;
+}
+
+.about-card p {
+  line-height: 2;
+}
+
+/* SKILLS */
+.skills-card {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0 5px 25px #e9cbd555;
+}
+
+.skill-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.skill {
+  background: #ffe6f0;
+  color: #bd7198;
+  padding: 12px 25px;
+  border-radius: 30px;
+}
+
+/* PROJECTS */
+.project-grid {
+  max-width: 950px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  );
+  gap: 22px;
+}
+
+.project {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 5px 20px #e9cbd555;
+  transition: 0.3s;
+}
+
+.project:hover {
+  transform: translateY(-6px);
+}
+
+.project-icon {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.project h3 {
+  color: #c66e9c;
+  margin-bottom: 10px;
+}
+
+/* CONTACT */
+.contact-card {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 5px 25px #e9cbd555;
+}
+
+/* FOOTER */
+footer {
+  background: #f8dce9;
+  padding: 30px;
+  text-align: center;
+  color: #9d6380;
+}
+
+/* MOBILE */
+@media(max-width: 600px) {
+  nav {
+    padding: 15px 5%;
+  }
+
+  nav a {
+    margin-left: 8px;
+    font-size: 12px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  section {
+    padding: 55px 6%;
+  }
+
+  .about-card,
+  .contact-card {
+    padding: 25px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <div class="card">
-    <h1>Halo, Saya Adinda!</h1>
-    <p>Selamat datang di portofolio pribadi saya.</p>
-    <h3>Tentang Saya</h3>
-    <p>Saya sedang belajar dan mengembangkan kemampuan baru.</p>
-    <h3>Keahlian</h3>
-    <p>Belajar HTML, CSS, dan desain.</p>
-    <h3>Kontak</h3>
-    <p>Terima kasih sudah mengunjungi website saya!</p>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">Adinda ♡</div>
+
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
   </div>
+</nav>
+
+<!-- HOME -->
+<header class="hero" id="home">
+
+  <div class="hero-label">
+    ♡ Welcome to My Portfolio ♡
+  </div>
+
+  <h1>Hi, I'm Adinda!</h1>
+
+  <h2>I'm a Student 🌷</h2>
+
+  <p>
+    Selamat datang di website portofolio pribadi saya.
+    Saya sedang belajar coding dan desain website,
+    serta senang mencoba hal-hal baru.
+  </p>
+
+  <a href="#about" class="btn">
+    Explore My Profile ♡
+  </a>
+
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+
+  <h2 class="section-title">
+    About Me ♡
+  </h2>
+
+  <p class="section-subtitle">
+    Get to know me better
+  </p>
+
+  <div class="about-card">
+
+    <p>
+      Halo! Nama saya <b>Adinda</b>.
+      Saya seorang pelajar yang sedang belajar
+      coding dan desain website.
+      <br><br>
+      Saya suka mempelajari hal baru,
+      mengembangkan kreativitas, dan mencoba
+      membuat karya digital yang menarik.
+      <br><br>
+      Website ini merupakan tempat untuk
+      memperkenalkan diri dan menampilkan
+      perjalanan belajar serta karya saya.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+
+  <h2 class="section-title">
+    My Skills ✨
+  </h2>
+
+  <p class="section-subtitle">
+    Things I am learning
+  </p>
+
+  <div class="skills-card">
+
+    <div class="skill-list">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">Web Design</div>
+      <div class="skill">Creativity</div>
+      <div class="skill">Learning</div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+
+  <h2 class="section-title">
+    My Projects 🌸
+  </h2>
+
+  <p class="section-subtitle">
+    My learning journey and creations
+  </p>
+
+  <div class="project-grid">
+
+    <div class="project">
+      <div class="project-icon">💻</div>
+      <h3>My First Website</h3>
+      <p>
+        Website pertama yang saya buat
+        menggunakan HTML dan CSS.
+      </p>
+    </div>
+
+    <div class="project">
+      <div class="project-icon">🎨</div>
+      <h3>Creative Design</h3>
+      <p>
+        Eksplorasi desain dan kreativitas
+        dalam membuat karya digital.
+      </p>
+    </div>
+
+    <div class="project">
+      <div class="project-icon">🌷</div>
+      <h3>My Portfolio</h3>
+      <p>
+        Website portofolio pribadi
+        sebagai tempat menampilkan karya.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+  <h2 class="section-title">
+    Contact Me 💌
+  </h2>
+
+  <div class="contact-card">
+
+    <p>
+      Terima kasih sudah mengunjungi
+      website portofolio saya!
+    </p>
+
+    <p style="margin-top:15px;">
+      Feel free to connect with me.
+    </p>
+
+    <p style="margin-top:20px; color:#c66e9c;">
+      Made with love by Adinda ♡
+    </p>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Adinda's Portfolio</p>
+  <p>Made with ♡ and creativity</p>
+</footer>
+
 </body>
 </html>
